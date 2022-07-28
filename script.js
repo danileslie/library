@@ -3,6 +3,9 @@ let newBook;
 let submit = document.getElementById('submit');
 let form = document.getElementById('form-book');
 let container = document.getElementById('container');
+let close = document.getElementById('close');
+let openPopup = document.getElementById('open-modal');
+let newBookModal = document.querySelector('.new-book');
 
 function Book(title, author, pages, read){
     this.title = form.title.value;
@@ -75,5 +78,16 @@ function addBooks(){
     createBookDiv();   
 }
 
+function closeBooks(){
+form.style.display = 'none';
+newBookModal.classList.remove('active');
+}
 
+function bookModal(){
+form.style.display = 'flex';
+newBookModal.classList.add('active');
+}
+
+openPopup.addEventListener('click', bookModal);
+close.addEventListener('click', closeBooks)
 submit.addEventListener('click', addBooks);
