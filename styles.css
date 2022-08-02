@@ -1,8 +1,35 @@
+:root{
+    --green: greenyellow;
+    --light-purple: #C9BBCF;
+    --dark-purple: #898AA6;
+    --red: #ECB390;
+    --delete: #f5f769;
+}
+
 body{
-    background: powderblue;
+    background: var(--light-purple);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Signika', sans-serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+    padding: 1rem;
+    background: var(--dark-purple);
+}
+
+.library{
+    margin-left: 5rem !important;
+    font-size: 2.5rem;
+    color: white;
 }
 
 .new-book{
@@ -13,6 +40,7 @@ height: 100%;
 top: 0;
 left: 0;
 z-index: 1;
+background-color: rgba(0, 0, 0, 0.5)
 }
 
 .active{
@@ -23,50 +51,99 @@ z-index: 1;
     position: relative;
     border-radius: 16px; 
     flex-direction: column;
-    align-items: center;
-    width: 10rem;
+    align-items: flex-start;
+    width: 200px;
     padding: 2rem;
-    border: 2px solid goldenrod;
     margin: 14% auto;
+    background-color: #C9BBCF;
 }
 
-#close{
-    position: absolute;
-    top: 5%;
-    right: 5%;
+#form-book > input{
+width: 100%;
+height: 2rem;
+padding: 2%;
+border-radius: 10px;
+border: none;
+margin-bottom: 1rem;
+font-size: 1.5rem;
+}
+
+.add-and-close{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.add-and-close > p{
+    margin: 0;
+}
+
+.read-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+
 }
 
 #container{
-    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    width: 100%;
+    max-width: 2000px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+    grid-auto-rows: minmax(300px, auto);
+    margin-top: 1%;
+    gap: 2rem;
+}
+
+#open-modal{
+font-size: 5rem;
+justify-content: center;
+align-items: center;
+}
+
+#read{
+    height: 30px;
+    width: 30px;
+    margin-left: 10px;
 }
 
 .box-test{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    border: 2px solid;
-    width: 20rem;
-    height: 20rem;
-    background: rgb(104, 161, 104);
+    border: 3px solid #898AA6;
+    background: #B7D3DF;
     border-radius: 32px;
-    margin: 2rem;
+    margin: 0.5%;
+    padding: 1rem;
 }
 
 .title, .author, .pages{
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.author{
+    font-size: 15px;
+    color: rgb(110, 108, 108);
 }
 
 .delete-button {
+    font-weight: bold;
+    font-size: 1rem;
     border-radius: 16px;
     padding: 1rem;
     border-style: none;
     margin: 0.5rem;
-    color: rgb(202, 92, 169);
-    background-color: yellow;
+    color: rgb(204, 38, 74);
+    background-color: var(--delete);
 }
 
 .round{
@@ -76,11 +153,41 @@ z-index: 1;
 }
 
 .read{
-    background-color: green;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--green);
 }
 
 .unread{
-    background-color: red;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: var(--red);
 }
 
+hr{
+    width: 100%;
+    border: 0;
+    border-top: 2px solid var(--dark-purple);
+}
 
+.box-test > button {
+    align-self: center;
+    width: 100%;
+}
+
+label{
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+#submit{
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    height: 2rem;
+    background-color: var(--green);
+    font-family: 'Signika', sans-serif;
+    font-size: 1.3rem;
+}
+
+/* font sizes on cards */

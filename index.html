@@ -1,28 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href="styles.css">
-    <script src="script.js" defer></script>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='styles.css'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Signika:wght@600&display=swap' rel='stylesheet'> 
+    <script src='script.js' defer></script>
     <title>Library!</title>
 </head>
 <body>
-    <button id="open-modal">Add Books</button>
-    <div id="container"></div>
-    <div class="new-book">
-        <form id="form-book">
-            <div id="close">x</div>
-            <label for="title">Title: </label>
-            <input name="title" id='title' type="text" minlength="1" maxlength="80">
-            <label for="author">Author: </label>
-            <input name="author" id="author" type="text" minlength="1" maxlength="80">
-            <label for="pages">Pages: </label>
-            <input name="pages" id="pages" type="text" minlength="1" maxlength="80">
-            <label for="read">Read: </label>
-            <input name="read" id="read" type="checkbox" minlength="1" maxlength="80">
-            <button id="submit" form='form-book' type="button">Submit</button>
+    <header class='header'>
+        <p class='library'>Library</p>
+    </header>
+    <div id='container'>
+        <button id='open-modal' class='box-test' type='button'>+</button>
+    </div>
+    <div class='new-book'>
+        <form id='form-book'>
+            <div class='add-and-close'>
+            <p>Add a New Book</p>
+            <div id='close'>x</div>
+            </div>
+            <label for='title'>Title </label>
+            <input name='title' id='title' type='text' minlength='1' maxlength='80' autocomplete='off' required>
+            <label for='author'>Author </label>
+            <input name='author' id='author' type='text' minlength='1' maxlength='80' autocomplete='off' required>
+            <label for='pages'>Pages </label>
+            <input name='pages' id='pages' type='number' required>
+            <div class='read-box'>
+            <label for='read'>Read? </label>
+            <input name='read' id='read' type='checkbox' min='1'>
+            </div>
+            <button id='submit' type='submit'>Submit</button>
         </form>
     </div>
     

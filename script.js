@@ -21,6 +21,7 @@ function createBookDiv(){
     let pagesDiv = document.createElement('div');
     let readButton = document.createElement('button');
     let deleteButton = document.createElement('button');
+    let hr = document.createElement('hr');
 
     bookDiv.classList.add('box-test');
 
@@ -32,8 +33,10 @@ function createBookDiv(){
     authorDiv.textContent = newBook.author;
     bookDiv.appendChild(authorDiv);
 
+    bookDiv.appendChild(hr);
+
     pagesDiv.classList.add('pages');
-    pagesDiv.textContent = newBook.pages;
+    pagesDiv.textContent = `${newBook.pages} pages` ;
     bookDiv.appendChild(pagesDiv);
 
     readButton.classList.add('round');
@@ -71,11 +74,16 @@ function createBookDiv(){
 }
 
 function addBooks(){
-    newBook =  new Book(title, author, pages, read);
-    myLibrary.push(newBook);
-    form.reset();
-    console.table(myLibrary);
-    createBookDiv();   
+    if(title.value.length === 0 || author.value.length === 0 || pages.value.length === 0){
+        return
+    } else{
+        newBook =  new Book(title, author, pages, read);
+        myLibrary.push(newBook);
+        console.table(myLibrary);
+        createBookDiv();
+        closeBooks(); 
+        form.reset();
+    }    
 }
 
 function closeBooks(){
@@ -88,6 +96,6 @@ form.style.display = 'flex';
 newBookModal.classList.add('active');
 }
 
-openPopup.addEventListener('click', bookModal);
+openPopup.addEventListener('click',bookModal);
 close.addEventListener('click', closeBooks)
 submit.addEventListener('click', addBooks);
