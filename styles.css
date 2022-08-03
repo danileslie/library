@@ -5,12 +5,27 @@
     --red: #ECB390;
     --delete: #f5f769;
 }
+body, .header, .read-box, .add-and-close, #open-modal{
+    display: flex;
+    align-items: center;
+}
+
+.header, .new-book, #book-form > input, .add-and-close, .read-box, #container, .library-card > button, #submit{
+    width: 100%;
+}
+
+.read, #submit{
+    background-color: var(--green);
+}
+
+.read, .unread, .delete-button{
+    font-size: 1rem;
+    font-weight: bold;
+}
 
 body{
     background: var(--light-purple);
-    display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -18,16 +33,13 @@ body{
 }
 
 .header{
-    display: flex;
-    align-items: center;
-    height: 5vh;
-    width: 100%;
-    padding: 1rem;
     background: var(--dark-purple);
+    height: 5vh;
+    padding: 1rem;  
 }
 
 .library{
-    margin-left: 5rem !important;
+    margin-left: 5rem;
     font-size: 2.5rem;
     color: white;
 }
@@ -35,11 +47,7 @@ body{
 .new-book{
 position: fixed;
 display: none;
-width: 100%;
 height: 100%;
-top: 0;
-left: 0;
-z-index: 1;
 background-color: rgba(0, 0, 0, 0.5)
 }
 
@@ -47,7 +55,7 @@ background-color: rgba(0, 0, 0, 0.5)
     display: block;
 }
 
-#form-book{  
+#book-form{  
     position: relative;
     border-radius: 16px; 
     flex-direction: column;
@@ -58,21 +66,17 @@ background-color: rgba(0, 0, 0, 0.5)
     background-color: #C9BBCF;
 }
 
-#form-book > input{
-width: 100%;
-height: 2rem;
-padding: 2%;
-border-radius: 10px;
-border: none;
-margin-bottom: 1rem;
-font-size: 1.5rem;
+#book-form > input{
+    height: 2rem;
+    padding: 2%;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .add-and-close{
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%; 
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
@@ -82,18 +86,13 @@ font-size: 1.5rem;
 }
 
 .read-box{
-    display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
     margin-bottom: 10px;
-
 }
 
 #container{
     display: grid;
     justify-content: center;
-    width: 100%;
     max-width: 2000px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
     grid-auto-rows: minmax(300px, auto);
@@ -104,7 +103,6 @@ font-size: 1.5rem;
 #open-modal{
 font-size: 5rem;
 justify-content: center;
-align-items: center;
 }
 
 #read{
@@ -113,11 +111,11 @@ align-items: center;
     margin-left: 10px;
 }
 
-.box-test{
+.library-card{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
     border: 3px solid #898AA6;
     background: #B7D3DF;
     border-radius: 32px;
@@ -136,12 +134,6 @@ align-items: center;
 }
 
 .delete-button {
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 16px;
-    padding: 1rem;
-    border-style: none;
-    margin: 0.5rem;
     color: rgb(204, 38, 74);
     background-color: var(--delete);
 }
@@ -152,27 +144,12 @@ align-items: center;
     border-style: none;
 }
 
-.read{
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: var(--green);
-}
-
 .unread{
-    font-weight: bold;
-    font-size: 1rem;
     background-color: var(--red);
 }
 
-hr{
-    width: 100%;
-    border: 0;
-    border-top: 2px solid var(--dark-purple);
-}
-
-.box-test > button {
+.library-card > button {
     align-self: center;
-    width: 100%;
 }
 
 label{
@@ -181,13 +158,9 @@ label{
 }
 
 #submit{
-    width: 100%;
     border-radius: 10px;
     border: none;
     height: 2rem;
-    background-color: var(--green);
     font-family: 'Signika', sans-serif;
     font-size: 1.3rem;
 }
-
-/* font sizes on cards */

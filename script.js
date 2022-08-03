@@ -1,7 +1,7 @@
 let myLibrary = []
 let newBook;
 let submit = document.getElementById('submit');
-let form = document.getElementById('form-book');
+let form = document.getElementById('book-form');
 let container = document.getElementById('container');
 let close = document.getElementById('close');
 let openPopup = document.getElementById('open-modal');
@@ -21,9 +21,8 @@ function createBookDiv(){
     let pagesDiv = document.createElement('div');
     let readButton = document.createElement('button');
     let deleteButton = document.createElement('button');
-    let hr = document.createElement('hr');
 
-    bookDiv.classList.add('box-test');
+    bookDiv.classList.add('library-card');
 
     titleDiv.classList.add('title');
     titleDiv.textContent = newBook.title;
@@ -32,8 +31,6 @@ function createBookDiv(){
     authorDiv.classList.add('author');
     authorDiv.textContent = newBook.author;
     bookDiv.appendChild(authorDiv);
-
-    bookDiv.appendChild(hr);
 
     pagesDiv.classList.add('pages');
     pagesDiv.textContent = `${newBook.pages} pages` ;
@@ -44,7 +41,7 @@ function createBookDiv(){
     readButton.textContent = 'read';
     bookDiv.appendChild(readButton);
 
-    deleteButton.classList.add('delete-button');
+    deleteButton.classList.add('delete-button', 'round');
     deleteButton.textContent = 'Delete';
     bookDiv.appendChild(deleteButton);
 
@@ -74,12 +71,12 @@ function createBookDiv(){
 }
 
 function addBooks(){
+    // making sure function does not fire without proper validation
     if(title.value.length === 0 || author.value.length === 0 || pages.value.length === 0){
         return
     } else{
         newBook =  new Book(title, author, pages, read);
         myLibrary.push(newBook);
-        console.table(myLibrary);
         createBookDiv();
         closeBooks(); 
         form.reset();
@@ -87,6 +84,7 @@ function addBooks(){
 }
 
 function closeBooks(){
+    form.reset();
 form.style.display = 'none';
 newBookModal.classList.remove('active');
 }
