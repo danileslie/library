@@ -7,11 +7,13 @@ let close = document.getElementById('close');
 let openPopup = document.getElementById('open-modal');
 let newBookModal = document.querySelector('.new-book');
 
-function Book(title, author, pages, read){
+class Book{
+    constructor(title, author, pages, read){
     this.title = form.title.value;
     this.author = form.author.value;
     this.pages = form.pages.value;
     this.read = form.read.checked;
+    }
 }
 
 function createBookDiv(){ 
